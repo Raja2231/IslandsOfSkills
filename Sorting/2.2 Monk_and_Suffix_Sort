@@ -1,0 +1,32 @@
+2. Monk and Suffix Sort
+
+#include <iostream>
+#include <iterator>
+#include <set>
+#include <vector>
+#include <algorithm>
+#define pb push_back
+using namespace std;
+
+
+int main()
+{
+	//#define pb push_back
+	vector <string> v;
+	string a,b;
+	int k,i,j;
+	cin>>a>>k;
+	for(i=0;a[i];++i)
+	{
+		b="";
+		for(j=i;a[j];j++)
+		{
+			b+=a[j];
+		}
+		v.pb(b);
+	}
+	sort(v.begin(),v.end());
+	cout<< v[k-1]<<endl;
+	return 0;
+
+}

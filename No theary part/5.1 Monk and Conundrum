@@ -1,0 +1,35 @@
+5.1 Monk and Divisor Conundrum
+
+import sys
+
+def gcd(x, y):
+    while y != 0:
+        (x,y) = (y, x % y)
+    return x
+
+def lcm(x, y):
+   return (x*y)//gcd(x,y)
+
+n = int (sys.stdin.readline ().strip ())
+a = list (map (int, sys.stdin.readline ().split ()))
+maximum = max (a) + 1
+freq = [0 for _ in range (maximum + 1)]
+
+for i in a:
+    freq[i] +=1
+
+div = [0 for _ in range (maximum + 1)]
+for i in range (1, maximum + 1):
+    for factor in range (i, maximum + 1, i):
+        div[i] += freq[factor]
+
+
+for _ in range (int (sys.stdin.readline ().strip ())):
+    p, q = map (int, sys.stdin.readline ().split ())
+    pq = lcm(p,q)
+
+    a = div[p] if p<=maximum else 0
+    b = div[q] if q<=maximum else 0
+    ab = div[pq] if pq<=maximum else 0
+
+    print (a + b - ab)

@@ -1,0 +1,35 @@
+ARRAYS AND STRINGS
+
+1. Monk and Rotation
+
+import java.util.*;
+
+class TestClass {
+
+    public static void main(String[] args) {
+        Scanner s = new Scanner(System.in);
+        String input = s.nextLine();
+        int noOfTests = Integer.parseInt(input);
+        for (int t = 0; t < noOfTests; t++) {
+            input = s.nextLine();
+            String[] str = input.split(" ");
+            int sizeOfArray = Integer.parseInt(str[0]);
+            int noOfRotation = Integer.parseInt(str[1]);
+            String strIntegerArray = s.nextLine();
+            String[] array = strIntegerArray.split(" ");
+            printRightRotatedArray(array, noOfRotation, strIntegerArray.length());
+        }
+    }
+
+    static void printRightRotatedArray(String[] array, int noOfRotation, int lengthOfStr) {
+        int len = array.length;
+        int noOfAcutalRotation = noOfRotation % len;
+        int startingIndex = len - noOfAcutalRotation;
+        StringBuilder sb = new StringBuilder(lengthOfStr+1);
+        for (int i = 0; i < len; i++) {
+            sb.append(array[(startingIndex + i) % len]);
+            sb.append(" ");
+        }
+        System.out.println(sb);
+    }
+}

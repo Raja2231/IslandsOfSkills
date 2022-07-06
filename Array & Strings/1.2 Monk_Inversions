@@ -1,0 +1,51 @@
+ARRAYS AND STRINGS
+
+2.Monk and Inversions
+
+#include <iostream>
+using namespace std;
+
+int main()
+{
+
+int t;
+cin >>t;
+
+    for(int i=0; i<t; i++)
+{
+   int size;
+    cin >> size;
+     int r = size;
+     int c = size;
+     int array[r][c];
+
+       for(int j=0; j<r; j++)
+       {
+       for(int k=0; k<c; k++)
+       {
+        cin >> array[j][k];
+    }
+        }
+
+
+int count = 0;
+       for(int j=0; j<r; j++)
+   {
+       for(int k=0; k<c; k++)
+   {
+       for(int l=j; l<r; l++)
+   {
+       for(int m=k; m<c; m++)
+{
+if(array[j][k]>array[l][m])
+{       
+count++;
+}
+}
+}
+}
+}
+cout << count << endl;
+} 
+return 0;
+}
